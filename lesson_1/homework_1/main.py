@@ -6,39 +6,9 @@
 # используя базовый шаблон.
 
 from flask import Flask, render_template
+from products.py import products
 
 app = Flask(__name__)
-
-products = [
-    {
-        'id': 101,
-        'category': 'clothes',
-        'name': 'Футболка',
-        'description': 'Унисекс, модный принт, свободный покрой',
-        'price': '980- P'
-    },
-    {
-        'id': 102,
-        'category': 'clothes',
-        'name': 'Брюки мужские',
-        'description': 'Строгие брюки для свободного стиля. Натуральная шерсть',
-        'price': '5880- P'
-    },
-    {
-        'id': 103,
-        'category': 'clothes',
-        'name': 'Рубашка женская',
-        'description': 'Большая цветовая гамма, грудной карман.Хлопок',
-        'price': '1580- P'
-    },
-    {
-        'id': 104,
-        'category': 'clothes',
-        'name': 'Короткие шорты женские',
-        'description': 'Низкая талия, удобная молния. Чистый хлопок.',
-        'price': '1950- P'
-    },
-]
 
 
 @app.route('/main/')
@@ -48,7 +18,29 @@ def main():
 
 @app.route('/clothes/')
 def clothes():
-    return render_template('clothes.html', clothes=products)
+    clothes = []
+    for product in products:
+        if product.category == 'clothes':
+            clothes.append(product)
+    return render_template('clothes.html', clothes=clothes)
+
+
+@app.route('/shoes/')
+def shoes():
+    shoes = []
+    for product in products:
+        if product.category == 'shoes':
+            shoes.append(product)
+    return render_template('shoes.html', shoes=shoes)
+
+
+@app.route('/accessories/')
+def accessories():
+    accessories = []
+    for product in products:
+        if product.category == 'accessories':
+            accessories.append(product)
+    return render_template('accessories.html', accessories=accessories)
 
 
 if __name__ == '__main__':
