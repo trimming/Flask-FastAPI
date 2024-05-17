@@ -3,9 +3,10 @@
 
 {% block content %}
 
-<a href="/{{ item.id }}/">
+
   <div class="row row-cols-1 row-cols-md-3 g-4 container">
     {% for item in clothes %}
+    <a href="/{{ item.id }}/" style="text-decoration: none">
     <div class="col">
       <div class="card h-100">
         <img src="..." class="card-img-top" alt="...">
@@ -16,8 +17,9 @@
         </div>
       </div>
     </div>
+    </a>
     {% endfor %}
   </div>
-</a>
+
 
 {% endblock %}

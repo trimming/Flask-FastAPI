@@ -6,50 +6,50 @@
 # используя базовый шаблон.
 
 from flask import Flask, render_template
-from products.py import products
-
+from products import products
+print(products)
 app = Flask(__name__)
 
 
-@app.route('/main/')
+@app.route('/')
 def main():
     return render_template('index.html')
 
 
 @app.route('/clothes/')
 def clothes():
-    clothes = []
+    clothes_list = []
     for product in products:
-        if product.category == 'clothes':
-            clothes.append(product)
-    return render_template('clothes.html', clothes=clothes)
+        if product['category'] == 'clothes':
+            clothes_list.append(product)
+    return render_template('clothes.html', clothes=clothes_list)
 
 
 @app.route('/shoes/')
 def shoes():
-    shoes = []
+    shoes_list = []
     for product in products:
-        if product.category == 'shoes':
-            shoes.append(product)
-    return render_template('shoes.html', shoes=shoes)
+        if product['category'] == 'shoes':
+            shoes_list.append(product)
+    return render_template('shoes.html', shoes=shoes_list)
 
 
 @app.route('/accessories/')
 def accessories():
-    accessories = []
+    accessories_list = []
     for product in products:
-        if product.category == 'accessories':
-            accessories.append(product)
-    return render_template('accessories.html', accessories=accessories)
+        if product['category'] == 'accessories':
+            accessories_list.append(product)
+    return render_template('accessories.html', accessories=accessories_list)
 
 
-@app.route('/<int:id>/')
-def cards(id):
-    cards = []
+@app.route('/<int:product_id>/')
+def cards(product_id):
+    card = []
     for product in products:
-        if product.id == id:
-            cards.append(product)
-    return render_template('cards.html', cards=cards)
+        if product['id'] == product_id:
+            card.append(product)
+    return render_template('card.html', cards=card)
 
 
 if __name__ == '__main__':
