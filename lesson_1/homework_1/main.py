@@ -43,5 +43,14 @@ def accessories():
     return render_template('accessories.html', accessories=accessories)
 
 
+@app.route('/<int:id>/')
+def cards(id):
+    cards = []
+    for product in products:
+        if product.id == id:
+            cards.append(product)
+    return render_template('cards.html', cards=cards)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
