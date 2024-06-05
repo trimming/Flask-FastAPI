@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block tittle%} Main page{% endblock %}
+
+{% block content%}
+<!--<form method="post">-->
+<!--        <input type="text" placeholder="Имя" name="name">-->
+<!--        <input type="button" href="{{ url_for('index') }}" value="Нажми меня">-->
+<!--</form>-->
+<a href="{{ url_for('hello') }}">
+        <button class="btn btn-primary" type="submit">Приветствие</button>
+</a><br>
+
+<a href="{{ url_for('upload_img')}}">
+        <img src="{{ url_for('static', filename='images/welcome.png')}}" alt="welcome">
+</a>
+
+{% endblock %}
