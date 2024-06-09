@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block tittle%} Регистрация {% endblock %}
+
+{% block content%}
+<h1>Для регистрации введите имя и вашу электронную почту.</h1>
+<form method="post" >
+    <input type="text" name="name" placeholder="Имя"><br>
+    <input type="email" name="email" placeholder="Email"><br>
+    <input type="submit" value="Отправить">
+</form>
+
+{% endblock %}
