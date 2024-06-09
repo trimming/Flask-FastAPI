@@ -8,10 +8,9 @@
 # при нажатии на которую будет удалён cookie-файл с данными пользователя
 # и произведено перенаправление на страницу ввода имени и электронной почты.
 
-import secrets
-from pathlib import PurePath, Path
-from flask import Flask, render_template, redirect, url_for, request, abort, flash, make_response, session
-from werkzeug.utils import secure_filename
+
+from flask import Flask, render_template, redirect, url_for, request, make_response
+
 
 app = Flask(__name__)
 
