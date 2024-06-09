@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block tittle%} Get square {% endblock %}
+
+{% block content%}
+<h1>Введите два числа и выберите операцию</h1>
+<form method="post" >
+    <input type="number" name="num" placeholder="Введи число">
+    <input type="submit" value="Вычислить">
+</form>
+
+{% endblock %}

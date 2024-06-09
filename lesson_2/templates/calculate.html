@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block tittle%} Calculator{% endblock %}
+
+{% block content%}
+<h1>Введите два числа и выберите операцию</h1>
+<form method="post" >
+    <input type="number" name="num_1" placeholder="Первое число">
+    <input type="number" name="num_2" placeholder="Второе число">
+    <select id="operation" name="operation">
+        <option value="add">+</option>
+        <option value="sub">-</option>
+        <option value="multiply">*</option>
+        <option value="divide">/</option>
+    </select>
+    <input type="submit" value="Вычислить">
+</form>
+
+{% endblock %}

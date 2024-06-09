@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block tittle%} Check age{% endblock %}
+
+{% block content%}
+<h1>Введите ваш возраст.</h1>
+<form method="post" >
+    <input type="text" name="name" placeholder="Имя">
+    <input type="number" name="age" placeholder="Возраст">
+    <input type="submit" value="Отправить">
+</form>
+
+{% endblock %}
