@@ -1,5 +1,5 @@
 import secrets
-import hashlib
+
 from flask import Flask, render_template, request
 from task.models import db, User
 from task.forms import RegisterForm
@@ -30,11 +30,10 @@ def log_in():
         first_name = form.first_name.data
         last_name = form.last_name.data
         email = form.email.data
-        pass_hash = hashlib.new('md5')
         password = form.password.data
-        pass_hash.update(password.encode())
         user = User(first_name=first_name, last_name=last_name, email=email,
-                    password=pass_hash.hexdigest())
+                    password=password)
+        user.set_password(password)
         db.session.add(user)
         db.session.commit()
         return f'Вы зарегистрированы!'
